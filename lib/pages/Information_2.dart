@@ -22,7 +22,7 @@ class Information_2 extends StatelessWidget {
                               'När du registrerar något via denna \napp kommer det att genereras ett \nmail genom ditt mailprogram och \nsom skickas direkt till \nförsvarsmakten. Ingen information sparas.',
                           style: TextStyle(
                               fontSize: 18,
-                              color: Colors.black,
+                              color: Colors.white,
                               fontFamily: 'Roboto'),
                         ),
                       ),
@@ -37,7 +37,7 @@ class Information_2 extends StatelessWidget {
                         ),
                       ),
                       onPressed: () {
-                        Navigator.pushNamed(context, '/Location');
+                        Navigator.pushNamed(context, '/DateTime');
                       },
                       style: ElevatedButton.styleFrom(
                         primary: Colors.white,
