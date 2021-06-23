@@ -117,10 +117,11 @@ class _DateTimeFormState extends State<DateTimeForm> {
                           ],
                         ),
 
-                        child: Column(
+                       child: Column(
                           children: <Widget>[
 
-                           TextFormField(child: BasicDateField()),
+
+                            BasicDateField(),
                            BasicTimeField(),
 
                             Align(
