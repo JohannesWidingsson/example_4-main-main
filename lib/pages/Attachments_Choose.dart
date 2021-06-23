@@ -88,6 +88,7 @@ class Attachments_ChooseState extends State<Attachments_Choose> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      backgroundColor: Color(0xFFF5F4E2),
       body: SafeArea(
         child: Center(
           child: Column(

@@ -15,11 +15,12 @@ class MyHomePageState extends State<MyHomePage> {
         backgroundColor: Color(0xFFF5F4E2),
         appBar: AppBar(
           title: Text('Rapportera'),
-          backgroundColor: Color(555849),
+          backgroundColor: Color(0xFF555849),
           actions: <Widget>[
-            IconButton(onPressed: () {}, icon: Icon(Icons.more_horiz)),
+            IconButton(onPressed: () {}, icon: Icon(Icons.search)),
+            IconButton(onPressed: () {}, icon: Icon(Icons.more_vert)),
 
-            //PopupMenuButton(itemBuilder: itemBuilder)
+
           ],
           leading: IconButton(onPressed: () {}, icon: Icon(Icons.menu)),
         ),
@@ -47,6 +48,7 @@ class _DateTimeFormState extends State<DateTimeForm> {
         child: SafeArea(
           child: new Column(
             children: <Widget>[
+
               Container(
                 height: 490.0,
                 width: 800,
@@ -72,6 +74,8 @@ class _DateTimeFormState extends State<DateTimeForm> {
                     ),
                   ],
                 ),
+
+
                 child: Column(
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: <Widget>[
@@ -99,15 +103,13 @@ class _DateTimeFormState extends State<DateTimeForm> {
                     ),
                     //SizedBox(height: 24),
                     Padding(
-                      padding: const EdgeInsets.fromLTRB(35,0,0,0),
+                      padding: const EdgeInsets.fromLTRB(35, 0, 0, 0),
                       child: Container(
                         height: 250.0,
                         width: 330,
                         decoration: BoxDecoration(
                           color: Colors.white,
-
                           borderRadius: BorderRadius.circular(10),
-
                           boxShadow: [
                             BoxShadow(
                               color: Color(0xFF707070).withOpacity(0.5),
@@ -116,18 +118,15 @@ class _DateTimeFormState extends State<DateTimeForm> {
                             ),
                           ],
                         ),
-
-                       child: Column(
+                        child: Column(
                           children: <Widget>[
-
-
                             BasicDateField(),
-                           BasicTimeField(),
-
+                            BasicTimeField(),
                             Align(
                               alignment: Alignment.centerLeft,
                               child: Padding(
-                                padding: const EdgeInsets.fromLTRB(240,30,0,0),
+                                padding:
+                                    const EdgeInsets.fromLTRB(240, 30, 0, 0),
                                 child: ElevatedButton(
                                   child: Text(
                                     'Nästa',
@@ -198,47 +197,87 @@ class _DateTimeFormState extends State<DateTimeForm> {
 
 class BasicDateField extends StatelessWidget {
   static TextEditingController datee = TextEditingController();
-  static final format = DateFormat("YYYY-MM-DD");
+  static final format = DateFormat("yyyy-MM-dd");
   @override
   Widget build(BuildContext context) {
     return Column(children: <Widget>[
 
-      DateTimeField(
+      Padding(
+        padding: const EdgeInsets.fromLTRB(10,12,10,5),
+        child: DateTimeField(
 
-        controller: datee,
-        format: format,
-        onShowPicker: (context, currentValue) {
-          return showDatePicker(
-              context: context,
-              firstDate: DateTime(1900),
-              initialDate: currentValue ?? DateTime.now(),
-              lastDate: DateTime(2100));
-        },
+          decoration: const InputDecoration(
+
+            enabledBorder: OutlineInputBorder(
+              borderSide: BorderSide(color: Colors.grey, width: 0.5),
+            ),
+            hintText: 'Datum',
+
+          ),
+
+          controller: datee,
+          format: format,
+          onShowPicker: (context, currentValue) {
+            return showDatePicker(
+                context: context,
+                firstDate: DateTime(1900),
+                initialDate: currentValue ?? DateTime.now(),
+                lastDate: DateTime(2100));
+          },
+        ),
       ),
-      Text('Ange Datum i formatet (${format.pattern})'),
+      Padding(
+        padding: const EdgeInsets.fromLTRB(0,0,85,0),
+        child: Text(
+          'Ange datum i formatet (${format.pattern})',
+
+          style: TextStyle(
+            color: Color(0xFF707070),
+            fontSize: 11,
+          ),
+        ),
+      ),
     ]);
   }
 }
 
 class BasicTimeField extends StatelessWidget {
   static TextEditingController timee = TextEditingController();
-  static final format = DateFormat('HH:MM');
+  static final format = DateFormat('HH:mm');
 
   @override
   Widget build(BuildContext context) {
     return Column(children: <Widget>[
-      DateTimeField(
-        controller: timee,
-        format: format,
-        onShowPicker: (context, currentValue) async {
-          final TimeOfDay? time = await showTimePicker(
-            context: context,
-            initialTime: TimeOfDay.fromDateTime(currentValue ?? DateTime.now()),
-          );
-          return time == null ? null : DateTimeField.convert(time);
-        },
+      Padding(
+        padding: const EdgeInsets.fromLTRB(10,5,10,5),
+        child: DateTimeField(
+    decoration: const InputDecoration(
+
+    enabledBorder: OutlineInputBorder(
+    borderSide: BorderSide(color: Colors.grey, width: 0.5),
+    ),
+        hintText: 'Tid',),
+          controller: timee,
+          format: format,
+          onShowPicker: (context, currentValue) async {
+            final TimeOfDay? time = await showTimePicker(
+              context: context,
+              initialTime: TimeOfDay.fromDateTime(currentValue ?? DateTime.now()),
+            );
+            return time == null ? null : DateTimeField.convert(time);
+          },
+        ),
       ),
-      Text('Ange tiden i formatet (${format.pattern})'),
+      Padding(
+        padding: const EdgeInsets.fromLTRB(0,0,120,0),
+        child: Text(
+          'Ange tiden i formatet (${format.pattern})',
+          style: TextStyle(
+            fontSize: 11,
+            color: Color(0xFF707070),
+          ),
+        ),
+      )
     ]);
   }
 }

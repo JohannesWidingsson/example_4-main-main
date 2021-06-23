@@ -11,9 +11,10 @@ class Event extends StatelessWidget {
     return Scaffold(
       appBar: AppBar(
         title: Text('Rapportera'),
-        backgroundColor: Color(555849),
+        backgroundColor: Color(0xFF555849),
         actions: <Widget>[
-          IconButton(onPressed: () {}, icon: Icon(Icons.more_horiz)),
+          IconButton(onPressed: () {}, icon: Icon(Icons.search)),
+          IconButton(onPressed: () {}, icon: Icon(Icons.more_vert)),
         ],
         leading: IconButton(onPressed: () {}, icon: Icon(Icons.menu)),
       ),
@@ -97,7 +98,7 @@ class MyCustomFormState extends State<MyCustomForm> {
                       ),
                     ),
                     Padding(
-                      padding: const EdgeInsets.fromLTRB(35, 0, 0, 0),
+                      padding: const EdgeInsets.fromLTRB(35, 0, 30, 0),
                       child: Container(
                         height: 250.0,
                         width: 330,
