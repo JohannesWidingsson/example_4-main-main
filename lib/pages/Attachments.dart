@@ -111,7 +111,13 @@ class Attachments extends StatelessWidget {
                                 padding:
                                 const EdgeInsets.fromLTRB(16, 30, 16, 60),
                                 child: Text(
-                                    'Bifoga video eller bild till ditt meddelande\n(Max xx Mb) eller tyck Nästa för att \n hoppa över detta steg.'),
+                                    'Bifoga video eller bild till ditt meddelande\n(Max xx Mb) eller tyck Nästa för att \n hoppa över detta steg.',
+                                  style: TextStyle(
+                                    fontSize: 14.0,
+                                    fontFamily: 'Roboto',
+                                    color: Color(0xFF707070),
+                                  ),
+                                ),
                               ),
                               Row(
                                 children: <Widget>[

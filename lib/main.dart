@@ -16,7 +16,6 @@ import 'package:example_4/pages/Rapportera.dart';
 import 'package:example_4/pages/UserInfo.dart';
 import 'package:example_4/pages/Test2.dart';
 import 'package:example_4/pages/ThankYou.dart';
-import 'package:example_4/pages/UserInfo2.dart';
 import 'package:flutter/material.dart';
 import 'package:example_4/pages/Location.dart';
 import 'package:example_4/pages/HomePage.dart';
@@ -41,7 +40,7 @@ Future<void> main() async {
     MaterialApp(
       initialRoute: '/Rapportera',
       routes: {
-        //'/Test': (context) => test(),
+        '/Test': (context) => AttachmentsTest(),
         '/Camera': (context) => TakePictureScreen(camera: firstCamera),
         //'/Email': (context) => EmailSender(),
         '/Attachments': (context) => Attachments(),
