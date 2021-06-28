@@ -13,6 +13,7 @@ import 'package:example_4/pages/Information.dart';
 import 'package:example_4/pages/Information_2.dart';
 import 'package:example_4/pages/Plats.dart';
 import 'package:example_4/pages/Rapportera.dart';
+import 'package:example_4/pages/Test3.dart';
 import 'package:example_4/pages/UserInfo.dart';
 import 'package:example_4/pages/Test2.dart';
 import 'package:example_4/pages/ThankYou.dart';
@@ -40,6 +41,7 @@ Future<void> main() async {
     MaterialApp(
       initialRoute: '/Rapportera',
       routes: {
+        '/Test3': (context) => LocationScreen(),
         '/Test': (context) => AttachmentsTest(),
         '/Camera': (context) => TakePictureScreen(camera: firstCamera),
         //'/Email': (context) => EmailSender(),

@@ -37,7 +37,7 @@ class Information_2 extends StatelessWidget {
                         ),
                       ),
                       onPressed: () {
-                        Navigator.pushNamed(context, '/DateTime');
+                        Navigator.pushNamed(context, '/Test3');
                       },
                       style: ElevatedButton.styleFrom(
                         primary: Colors.white,

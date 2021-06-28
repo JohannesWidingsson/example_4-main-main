@@ -7,6 +7,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_email_sender/flutter_email_sender.dart';
 import 'package:image_picker/image_picker.dart';
 import 'package:intl/intl.dart';
+import 'package:example_4/pages/Test3.dart';
 
 class UserInfo extends StatefulWidget {
   const UserInfo({Key? key}) : super(key: key);
@@ -28,6 +29,7 @@ class UserInfoState extends State<UserInfo> {
   TextEditingController textController = MyCustomFormState.textController;
   TextEditingController date = BasicDateField.datee;
   TextEditingController timee = BasicTimeField.timee;
+  TextEditingController location = LocationChooserState.lane1;
 
   static TextEditingController firstName = TextEditingController();
   static TextEditingController lastName = TextEditingController();
@@ -53,7 +55,12 @@ class UserInfoState extends State<UserInfo> {
           lastName.text +
           "\n" +
           "Telefonnummer: " +
-          phoneNumber.text,
+          phoneNumber.text +
+          "\n" +
+          "Koordinater: " + location.text,
+
+
+
       subject: _subjectController.text,
       recipients: [_recipientController.text],
       attachmentPaths: attachmentss,
