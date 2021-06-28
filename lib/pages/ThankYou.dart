@@ -26,47 +26,50 @@ class ThankYou extends StatelessWidget {
                   children: <Widget>[
                     Padding(
                       padding: const EdgeInsets.fromLTRB(50, 50, 40, 0),
-                      child: RichText(
-                        text: TextSpan(
+                      child: FittedBox(
+                        child: RichText(
+                          text: TextSpan(
 
 
-                          children: [
-                            new TextSpan(
-                              text: 'TACK!\n\n',
-                              style: TextStyle(
-                                fontFamily: 'gunplay',
-                                fontSize: 80,
-                                color: Color(0xFFFFFFFF),
+                            children: [
+                              new TextSpan(
+                                text: 'TACK!\n\n',
+                                style: TextStyle(
+                                  fontFamily: 'gunplay',
+                                  fontSize: 80,
+                                  color: Color(0xFFFFFFFF),
+                                ),
                               ),
-                            ),
-                            new TextSpan(
-                              text: 'Din insats hjälper oss att stärka\nSveriges försvar.\nDen rapporterade händelsen kommer\natt vidarebefodras till försvarsmakten\nför att rätt personer ska kunna ta del\nav den.\n ',
-                              style: new TextStyle(
-                                  fontSize: 18,
-                                  color: Colors.white,
-                                  fontFamily: 'Roboto'),
-                            ),
+                              new TextSpan(
+                                text: 'Din insats hjälper oss att stärka\nSveriges försvar.\nDen rapporterade händelsen kommer\natt vidarebefodras till försvarsmakten\nför att rätt personer ska kunna ta del\nav den.\n ',
+                                style: new TextStyle(
+                                    fontSize: 18,
+                                    color: Colors.white,
+                                    fontFamily: 'Roboto'),
+                              ),
 
-                            new TextSpan(
-                                text: '\nHåll ögonen öppna och rapportera\nom du ser något avvikande. Tipsa\ngärna dem du känner om appen så\natt vi blir fler som kan hålla ögonen\nöppna.\n',
-                              style: new TextStyle(
-                                  fontSize: 18,
-                                  color: Colors.white,
-                                  fontFamily: 'Roboto'),
-                            ),
+                              new TextSpan(
+                                  text: '\nHåll ögonen öppna och rapportera\nom du ser något avvikande. Tipsa\ngärna dem du känner om appen så\natt vi blir fler som kan hålla ögonen\nöppna.\n',
+                                style: new TextStyle(
+                                    fontSize: 18,
+                                    color: Colors.white,
+                                    fontFamily: 'Roboto'),
+                              ),
 
 
-                          ],
+                            ],
+                          ),
                         ),
                       ),
 
                     ),
                    Container(
                    child: Row(
+                     mainAxisAlignment: MainAxisAlignment.spaceBetween,
                       children: <Widget>[
 
                     Padding(
-                      padding: const EdgeInsets.fromLTRB(60,0,70,0),
+                      padding: const EdgeInsets.fromLTRB(60,0,0,0),
                       child: ElevatedButton(
                         child: Text(
                           'DELA APPEN',

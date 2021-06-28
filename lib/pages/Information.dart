@@ -43,33 +43,35 @@ class Information extends StatelessWidget {
                   children: <Widget>[
                     Padding(
                       padding: const EdgeInsets.fromLTRB(40, 60, 40, 30),
-                      child: RichText(
-                        text: TextSpan(
-                          text:
-                              'Välkommen till Mink137, appen där du som privatperson kan rapportera om du har sett något ovanligt i mark eller längst våra kuster.\n\n'
-                              'Appens syfte är att hjälpa försvarsmakten och marinen att\nsamla information om misstänkt aktivitet.\n\n'
-                              'Vi som står bakom appen är Activout AB i Ronneby, inte det svenska försvaret.\n\n'
-                              'Om du istället vill komma i direkt kontakt med försvarsmakten finns vidare information',
-                          style: TextStyle(
-                              fontSize: 18,
-                              color: Colors.white,
-                              fontFamily: 'Roboto'),
-                          children: <TextSpan>[
-                            TextSpan(
-                                text: ' HÄR.',
-                                recognizer: TapGestureRecognizer()
-                                  ..onTap = () {
-                                    Navigator.pushNamed(
-                                        context, '/ExternLinks');
-                                  },
-                                style: TextStyle(
-                                  color: Colors.blue,
-                                )),
 
-                            // TextSpan(text: 'text!'),
-                          ],
+                        child: RichText(
+                          text: TextSpan(
+                            text:
+                                'Välkommen till Mink137, appen där du som privatperson kan rapportera om du har sett något ovanligt i mark eller längst våra kuster.\n\n'
+                                'Appens syfte är att hjälpa försvarsmakten och marinen att\nsamla information om misstänkt aktivitet.\n\n'
+                                'Vi som står bakom appen är Activout AB i Ronneby, inte det svenska försvaret.\n\n'
+                                'Om du istället vill komma i direkt kontakt med försvarsmakten finns vidare information',
+                            style: TextStyle(
+                                fontSize: 18,
+                                color: Colors.white,
+                                fontFamily: 'Roboto'),
+                            children: <TextSpan>[
+                              TextSpan(
+                                  text: ' HÄR.',
+                                  recognizer: TapGestureRecognizer()
+                                    ..onTap = () {
+                                      Navigator.pushNamed(
+                                          context, '/ExternLinks');
+                                    },
+                                  style: TextStyle(
+                                    color: Colors.blue,
+                                  )),
+
+                              // TextSpan(text: 'text!'),
+                            ],
+                          ),
                         ),
-                      ),
+
                     ),
                     ElevatedButton(
                       child: Text(

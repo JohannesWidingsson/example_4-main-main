@@ -31,12 +31,14 @@ class Rapportera extends StatelessWidget {
                         ),
 
                         // Mink137 stylen.
-                        Text(
-                          'MINK137',
-                          style: TextStyle(
-                            fontFamily: 'gunplay',
-                            fontSize: 92,
-                            color: Colors.white,
+                        FittedBox(
+                          child: Text(
+                            'MINK137',
+                            style: TextStyle(
+                              fontFamily: 'gunplay',
+                              fontSize: 92,
+                              color: Colors.white,
+                            ),
                           ),
                         ),
                       ],

@@ -77,77 +77,86 @@ class _DateTimeFormState extends State<DateTimeForm> {
 
 
                 child: Column(
-                  crossAxisAlignment: CrossAxisAlignment.start,
-                  children: <Widget>[
-                    Padding(
-                      padding: const EdgeInsets.fromLTRB(35, 15, 0, 15),
-                      child: Text(
-                        'DATUM OCH TID',
-                        style: TextStyle(
-                          fontFamily: 'gunplay',
-                          fontSize: 24,
-                          color: Color(0xFFFFFFFF),
-                        ),
-                      ),
-                    ),
-                    Padding(
-                      padding: const EdgeInsets.fromLTRB(35, 15, 0, 15),
-                      child: Text(
-                        'När inträffade det som du vill rapportera?',
-                        style: TextStyle(
-                          fontFamily: 'Roboto',
-                          fontSize: 24,
-                          color: Color(0xFFFFFFFF),
-                        ),
-                      ),
-                    ),
-                    //SizedBox(height: 24),
-                    Padding(
-                      padding: const EdgeInsets.fromLTRB(35, 0, 0, 0),
-                      child: Container(
-                        height: 250.0,
-                        width: 330,
-                        decoration: BoxDecoration(
-                          color: Colors.white,
-                          borderRadius: BorderRadius.circular(10),
-                          boxShadow: [
-                            BoxShadow(
-                              color: Color(0xFF707070).withOpacity(0.5),
-                              spreadRadius: 3,
-                              blurRadius: 6,
+                  crossAxisAlignment: CrossAxisAlignment.center,
+                  children: [
+                    Wrap(
+                      children: <Widget>[
+                        Padding(
+                          padding: const EdgeInsets.fromLTRB(35, 15, 35, 15),
+                          child: Text(
+                            'DATUM OCH TID',
+                            style: TextStyle(
+                              fontFamily: 'gunplay',
+                              fontSize: 24,
+                              color: Color(0xFFFFFFFF),
                             ),
-                          ],
+                          ),
                         ),
-                        child: Column(
-                          children: <Widget>[
-                            BasicDateField(),
-                            BasicTimeField(),
-                            Align(
-                              alignment: Alignment.centerLeft,
-                              child: Padding(
-                                padding:
-                                    const EdgeInsets.fromLTRB(240, 30, 0, 0),
-                                child: ElevatedButton(
-                                  child: Text(
-                                    'Nästa',
-                                    style: TextStyle(
-                                      fontFamily: 'Roboto',
-                                      color: Color(0xFF707070),
-                                      fontSize: 14,
+                        Padding(
+                          padding: const EdgeInsets.fromLTRB(35, 15, 35, 15),
+                          child: Text(
+                            'När inträffade det som du vill rapportera?',
+                            style: TextStyle(
+                              fontFamily: 'Roboto',
+                              fontSize: 24,
+                              color: Color(0xFFFFFFFF),
+                            ),
+                          ),
+                        ),
+                        //SizedBox(height: 24),
+                        Padding(
+                          padding: const EdgeInsets.fromLTRB(35, 0, 35, 0),
+                          child: Container(
+                            height: 250.0,
+                            width: 330,
+                            decoration: BoxDecoration(
+                              color: Colors.white,
+                              borderRadius: BorderRadius.circular(10),
+                              boxShadow: [
+                                BoxShadow(
+                                  color: Color(0xFF707070).withOpacity(0.5),
+                                  spreadRadius: 3,
+                                  blurRadius: 6,
+                                ),
+                              ],
+                            ),
+                            child: Column(
+                              children: <Widget>[
+                                BasicDateField(),
+                                BasicTimeField(),
+                                Align(
+                                  alignment: Alignment.centerLeft,
+                                  child: Padding(
+                                    padding:
+                                        const EdgeInsets.fromLTRB(0, 20, 20, 0),
+                                    child: Row(
+                                      mainAxisAlignment: MainAxisAlignment.end,
+                                      children: [
+                                        ElevatedButton(
+                                          child: Text(
+                                            'Nästa',
+                                            style: TextStyle(
+                                              fontFamily: 'Roboto',
+                                              color: Color(0xFF707070),
+                                              fontSize: 14,
+                                            ),
+                                          ),
+                                          onPressed: () {
+                                            Navigator.pushNamed(context, '/Event');
+                                          },
+                                          style: ElevatedButton.styleFrom(
+                                            primary: Colors.white,
+                                          ),
+                                        ),
+                                      ],
                                     ),
                                   ),
-                                  onPressed: () {
-                                    Navigator.pushNamed(context, '/Event');
-                                  },
-                                  style: ElevatedButton.styleFrom(
-                                    primary: Colors.white,
-                                  ),
                                 ),
-                              ),
+                              ],
                             ),
-                          ],
+                          ),
                         ),
-                      ),
+                      ],
                     ),
                   ],
                 ),
