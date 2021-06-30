@@ -37,7 +37,7 @@ class Information_2 extends StatelessWidget {
                         ),
                       ),
                       onPressed: () {
-                        Navigator.pushNamed(context, '/Test3');
+                        Navigator.pushNamed(context, '/Location_Key');
                       },
                       style: ElevatedButton.styleFrom(
                         primary: Colors.white,

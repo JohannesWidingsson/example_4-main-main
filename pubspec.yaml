@@ -56,6 +56,10 @@ dependencies:
   geocoding: ^2.0.0
   geocoder: ^0.2.1
   google_maps_place_picker: ^2.0.0-nullsafety.3
+  material_floating_search_bar: ^0.3.4
+  location: ^4.2.0
+  #search_map_place: ^0.3.0
+  flutter_google_places: ^0.3.0
 
 
 

@@ -1,6 +1,5 @@
 import 'dart:async';
 import 'dart:io';
-
 import 'package:camera/camera.dart';
 import 'package:example_4/pages/Attachments_Choose.dart';
 import 'package:example_4/pages/Attachments_Confirm.dart';
@@ -11,9 +10,11 @@ import 'package:example_4/pages/Event.dart';
 import 'package:example_4/pages/ExternLinks.dart';
 import 'package:example_4/pages/Information.dart';
 import 'package:example_4/pages/Information_2.dart';
+//import 'package:example_4/pages/Johannes.dart';
 import 'package:example_4/pages/Plats.dart';
 import 'package:example_4/pages/Rapportera.dart';
-import 'package:example_4/pages/Test3.dart';
+import 'package:example_4/pages/Location.dart';
+import 'package:example_4/pages/Test5.dart';
 import 'package:example_4/pages/UserInfo.dart';
 import 'package:example_4/pages/Test2.dart';
 import 'package:example_4/pages/ThankYou.dart';
@@ -22,6 +23,7 @@ import 'package:example_4/pages/Location.dart';
 import 'package:example_4/pages/HomePage.dart';
 import 'package:example_4/pages/Camera.dart';
 import 'package:example_4/pages/Attachments.dart';
+import 'package:example_4/pages/Location_Key.dart';
 
 
 Future<void> main() async {
@@ -41,7 +43,10 @@ Future<void> main() async {
     MaterialApp(
       initialRoute: '/Rapportera',
       routes: {
-        '/Test3': (context) => LocationScreen(),
+        //'/Test5': (context) => LocationScreen(),
+        //'/Johannes': (context) => Johannes(),
+        '/Location': (context) => LocationScreen(),
+        '/Location_Key': (context) => Location_Key(),
         '/Test': (context) => AttachmentsTest(),
         '/Camera': (context) => TakePictureScreen(camera: firstCamera),
         //'/Email': (context) => EmailSender(),
