@@ -1,15 +1,53 @@
+// @dart=2.9
+import 'dart:io';
+
 import 'package:example_4/pages/Attachments_Choose.dart';
 import 'package:example_4/pages/HomePage.dart';
 import 'package:example_4/pages/ThankYou.dart';
 import 'package:flutter/material.dart';
+import 'package:image_picker/image_picker.dart';
+import 'package:path/path.dart';
+import 'package:example_4/pages/UserInfo.dart';
 
-/*
-FilePickerResult? result = await FilePicker.platform.pickFiles(
-type: FileType.custom,
-allowedExtensions: ['jpg', 'pdf', 'doc'],
-);
- */
-class Attachments extends StatelessWidget {
+
+
+class Attachments extends StatefulWidget {
+  const Attachments({Key key}) : super(key: key);
+
+  @override
+  AttachmentsState createState() => AttachmentsState();
+}
+
+class AttachmentsState extends State<Attachments> {
+  static List<String> attachments = [];
+  static File file ;
+  static String basename = "";
+  static PickedFile pick;
+
+
+
+  void openImagePicker() async {
+    final picker = ImagePicker();
+
+     pick = await picker.getImage(source: ImageSource.gallery);
+    if (pick != null) {
+      setState(() {
+        attachments.add(pick.path);
+        file = new File(pick.path);
+        basename = file.path.split('/').last;
+      });
+    }
+
+
+  }
+
+  void waittime() async{
+
+
+  }
+
+
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -113,7 +151,7 @@ class Attachments extends StatelessWidget {
                                     padding:
                                     const EdgeInsets.fromLTRB(16, 30, 16, 60),
                                     child: Text(
-                                        'Bifoga video eller bild till ditt meddelande\n(Max xx Mb) eller tyck Nästa för att \n hoppa över detta steg.',
+                                      'Bifoga video eller bild till ditt meddelande\n eller tryck Klar för att hoppa över detta steg.\n' + '\nBifogad fil: ' +  AttachmentsState.basename,
                                       style: TextStyle(
                                         fontSize: 14.0,
                                         fontFamily: 'Roboto',
@@ -128,13 +166,18 @@ class Attachments extends StatelessWidget {
                                         padding:
                                         const EdgeInsets.fromLTRB(20, 0, 0, 0),
                                         child: ElevatedButton(
-                                          onPressed: () {
-                                            Navigator.push(
-                                                context,
-                                                new MaterialPageRoute(
-                                                    builder: (context) =>
-                                                    new Attachments_Choose()));
+                                          onPressed: ()async{
+                                            var request = await (pick != null && basename != "");
+
+                                           await openImagePicker();
+
+                                            if (request == true){
+                                              Navigator.pushNamed(context, '/Attachments_Confirm');
+                                            }
+
                                           },
+
+
                                           child: Text(
                                             'VÄLJ FIL',
                                             style: TextStyle(
@@ -153,11 +196,12 @@ class Attachments extends StatelessWidget {
                                         const EdgeInsets.fromLTRB(0, 0, 20, 0),
                                         child: ElevatedButton(
                                           onPressed: () {
-                                            Navigator.push(
+                                            /*Navigator.push(
                                                 context,
                                                 new MaterialPageRoute(
                                                     builder: (context) =>
-                                                    new ThankYou()));
+                                                    new UserInfo()));*/
+                                            Navigator.pushNamed(context, '/Attachments_Confirm');
                                           },
                                           child: Text(
                                             'NÄSTA',
@@ -225,4 +269,59 @@ class Attachments extends StatelessWidget {
       ),
     );
   }
+
+
+
+
+
 }
+
+
+/*
+
+Future<void> deleteExpanse(int id) async {
+    try {
+      final MyDatabase dbManager = MyDatabase();
+      await dbManager.deleteTransaction(id, "Expense");
+      DataSample temp = _expenseItems.firstWhere((element) => id == element.id);
+
+      await _deleteImage(temp);
+
+      _expenseItems.removeWhere((element) => element.id == id);
+    } catch (error) {
+      throw error;
+    }
+    notifyListeners();
+  }
+
+  _deleteImage(DataSample data )async {
+      final directory = await getApplicationDocumentsDirectory();
+      final path = join(directory.path, data.image );
+      bool isExist = await File(path).exists();
+      if (isExist) {
+        await File(path).delete();
+
+      }
+
+
+     void _removeAttachment(int index) {
+      setState(() {
+        attachments.removeAt(index);
+    });
+  }
+
+
+
+
+
+  File file = new File("/storage/emulated/0/Android/data/my_app/files/Pictures/ca04f332.png");
+  String fileName = file.path.split('/').last;
+
+  print(fileName);
+
+ */
+
+
+
+
+

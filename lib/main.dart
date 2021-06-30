@@ -10,6 +10,7 @@ import 'package:example_4/pages/Event.dart';
 import 'package:example_4/pages/ExternLinks.dart';
 import 'package:example_4/pages/Information.dart';
 import 'package:example_4/pages/Information_2.dart';
+import 'package:example_4/pages/LocationChoosen.dart';
 //import 'package:example_4/pages/Johannes.dart';
 import 'package:example_4/pages/Plats.dart';
 import 'package:example_4/pages/Rapportera.dart';
@@ -47,7 +48,8 @@ Future<void> main() async {
         //'/Johannes': (context) => Johannes(),
         '/Location': (context) => LocationScreen(),
         '/Location_Key': (context) => Location_Key(),
-        '/Test': (context) => AttachmentsTest(),
+        '/LocationChoosen': (context) => LocationChoosen(),
+        //'/Test': (context) => AttachmentsTest(),
         '/Camera': (context) => TakePictureScreen(camera: firstCamera),
         //'/Email': (context) => EmailSender(),
         '/Attachments': (context) => Attachments(),
@@ -59,7 +61,7 @@ Future<void> main() async {
         '/Information_2': (context) => Information_2(),
         '/UserInfo': (context) => UserInfo(),
         '/Plats': (context) => Plats(),
-        '/Attachments_Choose': (context) => Attachments_Choose(),
+        //'/Attachments_Choose': (context) => Attachments_Choose(),
         '/Attachments_Confirm': (context) => Attachments_Confirm(),
         '/ThankYou': (context) => ThankYou(),
       },

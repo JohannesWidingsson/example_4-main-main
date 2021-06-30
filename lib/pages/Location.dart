@@ -3,6 +3,7 @@ import 'dart:async';
 import 'package:flutter/material.dart';
 //import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:geocoder/geocoder.dart';
+import 'package:geocoding/geocoding.dart';
 //import 'package:geolocator/geolocator.dart';
 import 'package:google_maps_flutter/google_maps_flutter.dart';
 //import 'package:sliding_up_panel/sliding_up_panel.dart';
@@ -22,6 +23,8 @@ class LocationChooserState extends State<LocationScreen> {
   MapType _currentMapType = MapType.normal;
   static String _title = "";
   static String _detail = "";
+  static String _address;
+
 
   static TextEditingController lane1;
 
@@ -68,7 +71,7 @@ class LocationChooserState extends State<LocationScreen> {
 
 
       Stack(
-      children: [
+        children: [
 
 
           GoogleMap(
@@ -103,7 +106,7 @@ class LocationChooserState extends State<LocationScreen> {
                           ),
                         ),
                         onPressed: () {
-                          Navigator.pushNamed(context, '/DateTime');
+                          Navigator.pushNamed(context, '/LocationChoosen');
                         },
                         style: ElevatedButton.styleFrom(
                           primary: Colors.white,
@@ -117,7 +120,6 @@ class LocationChooserState extends State<LocationScreen> {
           ),
         ],
       ),
-
 
 
     );
@@ -151,10 +153,25 @@ class LocationChooserState extends State<LocationScreen> {
     var first = addresses.first;
     print("${point.latitude} : ${point.longitude}");
 
-    setState(() {
-      _title = point.latitude.toString();
-      _detail = point.longitude.toString();
-      lane1.text = _title + "   " + _detail;
-    });
+    try {
+      List<Placemark> placemarks = await placemarkFromCoordinates(
+          point.latitude,
+          point.longitude
+      );
+      Placemark place = placemarks[0];
+
+      setState(() {
+        _title = point.latitude.toString();
+        _detail = point.longitude.toString();
+        _address =  "${place.street}, ${place.postalCode}, ${place.locality} ${place.country},";
+
+
+        lane1.text = "Lat: " +_title + "\n" + " Long: " + _detail + "\n "  +_address;
+
+      });
+    } catch (e) {
+      print(e);
+    }
   }
+
 }

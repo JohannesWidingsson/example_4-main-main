@@ -1,3 +1,8 @@
+
+
+
+
+/*
 import 'dart:io';
 
 import 'package:example_4/pages/Camera.dart';
@@ -106,35 +111,33 @@ class Attachments_ChooseState extends State<Attachments_Choose> {
               Text('Har du tagit bilder eller video på det inträffade?'),
 
               TextButton(
-                onPressed: () {
-                  _getFromGallery();
-                },
+                onPressed: _openImagePicker,
                 child: Text('VÄLJ FIL'),
               ),
 
-               IconButton(
+             /*  IconButton(
                 icon: Icon(Icons.attach_file),
                 onPressed: _openImagePicker,
-              ),
+              ), */
 
-              TextButton(
+              /*TextButton(
                 onPressed: () {
                   Navigator.pushNamed(context, '/UserInfo');
                 },
                 child: Text('KLAR'),
-              ),
+              ),*/
 
 
 
 
-              TextButton(
+           /*   TextButton(
                 onPressed: () =>
                     Navigator.pushNamed(
                       context,
                       "/Camera",
                     ),
                 child: Text('Ta Bild'),
-              )
+              ) */
             ],
           ),
         ),
@@ -142,3 +145,4 @@ class Attachments_ChooseState extends State<Attachments_Choose> {
     );
   }
 }
+*/

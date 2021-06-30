@@ -1,5 +1,6 @@
 import 'dart:async';
 import 'package:datetime_picker_formfield/datetime_picker_formfield.dart';
+import 'package:example_4/pages/Attachments.dart';
 import 'package:example_4/pages/Attachments_Choose.dart';
 import 'package:example_4/pages/DateTime.dart';
 import 'package:example_4/pages/Event.dart';
@@ -36,8 +37,7 @@ class UserInfoState extends State<UserInfo> {
   static TextEditingController lastName = TextEditingController();
   static TextEditingController phoneNumber = TextEditingController();
 
-  List<String> attachmentss =
-      Attachments_ChooseState.attachments.cast<String>();
+  List<String> attachmentss = AttachmentsState.attachments.cast<String>();
 
   Future<void> send() async {
     final Email email = Email(
